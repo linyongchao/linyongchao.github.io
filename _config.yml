@@ -1,4 +1,8 @@
 # Site settings
 title: Yongchao Lin
 email: linyongchaohappy@163.com
+description: 我的技术博客
+github_username:  linyongchao
+permalink: /:year/:month/:day/:title/
 markdown: kramdown
+highlighter: pygments
