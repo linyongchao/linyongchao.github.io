@@ -10,24 +10,30 @@ categories: CentOS Python MongoDB
 
 ## 环境
 
-1. 64 位 CentOS 6.5
-2. Python 2.6.6
-3. MongoDB 3.0.5
+* 64 位 CentOS 6.5
+* Python 2.6.6
+* MongoDB 3.0.5
 
 ## 过程
 
 1. 下载
 
+
 	wget https://pypi.python.org/packages/source/p/pymongo/pymongo-3.0.3.tar.gz
+
 
 2. 解压
 
+
 	tar zxvf pymongo-3.0.3.tar.gz
+
 
 3. 安装
 
+
 	cd pymongo-3.0.3
 	python setup.py  install
+
 
 ## 测试
 
