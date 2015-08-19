@@ -16,24 +16,18 @@ categories: CentOS Python MongoDB
 
 ## 过程
 
-1. 下载
-
+下载
 
 	wget https://pypi.python.org/packages/source/p/pymongo/pymongo-3.0.3.tar.gz
 
-
-2. 解压
-
+解压
 
 	tar zxvf pymongo-3.0.3.tar.gz
 
-
-3. 安装
-
+安装
 
 	cd pymongo-3.0.3
 	python setup.py  install
-
 
 ## 测试
 
