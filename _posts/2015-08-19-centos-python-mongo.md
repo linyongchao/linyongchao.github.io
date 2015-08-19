@@ -2,7 +2,7 @@
 layout: post
 title:  "CentOS 下 PyMongo 模块安装"
 date:   2015-08-19 13:26:05
-categories: CentOS,Python,MongoDB
+categories: CentOS Python MongoDB
 ---
 
 * content
