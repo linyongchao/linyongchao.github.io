@@ -27,7 +27,7 @@ categories: CentOS MongoDB
 	mv mongodb-linux-x86_64-rhel62-3.0.6 /usr/local/mongodb
 	cd /usr/local/mongodb
 
-配置
+配置 MongoDB
 
 	mkdir db
 	mkdir logs
@@ -45,6 +45,8 @@ categories: CentOS MongoDB
 配置开机自动启动
 
 	vi /etc/rc.d/rc.local
+
+在文件最后新增一行
 
 	/usr/local/mongodb/bin/mongod --config /usr/local/mongodb/bin/mongodb.conf
 
