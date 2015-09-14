@@ -2,7 +2,7 @@
 layout: post
 title:  "CentOS 下安装 MySQL-python"
 date:   2015-09-14 17:26:05
-categories: CentOS MySQL-python
+categories: CentOS Python
 ---
 
 * content
