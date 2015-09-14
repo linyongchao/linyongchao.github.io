@@ -43,4 +43,4 @@ categories: CentOS MySQL-python
 
 ## 注意
 
-需要先安装 setuptools ，详情请见(这里)[http://linyongchao.github.io/2015/09/14/centos-setuptools/]
+需要先安装 setuptools ，详情请见[这里](http://linyongchao.github.io/2015/09/14/centos-setuptools/)
