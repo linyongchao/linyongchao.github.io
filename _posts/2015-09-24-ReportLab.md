@@ -10,13 +10,14 @@ categories: Python
 
 ## 简介
 
-ReportLab[官网](http://www.reportlab.com/)的强大之处在于能满足绝大部分报表的需求形式，可以在点这里[下载](https://pypi.python.org/pypi/reportlab/#downloads)。
+ReportLab [官网](http://www.reportlab.com/) 的强大之处在于能满足绝大部分报表的需求形式，可以在点这里 [下载](https://pypi.python.org/pypi/reportlab/#downloads)。
 
 * 要求 Python 版本为 2.7 or >=3.3
 * 直接使用 API 是最麻烦、最基础的做法
 * 支持 [RML](http://www.reportlab.com/software/rml-reference/) 和 HTML
 
 ## 安装
+
 ### pip 安装
 
 	sudo pip install reportlab
@@ -86,9 +87,9 @@ ReportLab[官网](http://www.reportlab.com/)的强大之处在于能满足绝大
 
 
 		# Headers
-		hid = Paragraph('''<b>ID</b>''', styleBH)
-		hname = Paragraph('''<b>Name</b>''', styleBH)
-		hprice = Paragraph('''<b>Price</b>''', styleBH)
+		hid = Paragraph('<b>ID</b>', styleBH)
+		hname = Paragraph('<b>Name</b>', styleBH)
+		hprice = Paragraph('<b>Price</b>', styleBH)
 
 		# Texts
 		tid = Paragraph('1', styleN)
@@ -119,7 +120,8 @@ ReportLab[官网](http://www.reportlab.com/)的强大之处在于能满足绝大
 		hello()
 
 ### SimpleDocTemplate
-画布用法可从 API 的 5.6 Documents and Templates 学习，示例代码如下：
+
+SimpleDocTemplate 用法可从 API 的 5.6 Documents and Templates 学习，示例代码如下：
 
 	#!/usr/bin/python
 	# -*- coding: utf-8 -*-
@@ -135,7 +137,7 @@ ReportLab[官网](http://www.reportlab.com/)的强大之处在于能满足绝大
 	from reportlab.lib.styles import getSampleStyleSheet
 	from reportlab.pdfbase import pdfmetrics
 	from reportlab.pdfbase.ttfonts import TTFont
-	from reportlab.platypus import Image , Paragraph , SimpleDocTemplate , Spacer , Table , TableStyle
+	from reportlab.platypus import Image,Paragraph,SimpleDocTemplate,Spacer,Table,TableStyle
 	from tableutil import *
 
 	pdfmetrics.registerFont(TTFont('hei', 'ttc/simhei.ttf'))
@@ -211,7 +213,7 @@ ReportLab[官网](http://www.reportlab.com/)的强大之处在于能满足绝大
 
 ### 中文支持
 
-ReportLab 本身不支持中文，要在 PDF 中显示中文，需要手动引入中文字体包。
+ReportLab 本身不支持中文，要在 PDF 中显示中文，需要手动引入中文字体包。<br/>
 在 C:\WINDOWS\Fonts 下寻找需要的字体，将其引入 Python 程序，利用 pdfmetrics 方法注册字体后即可使用。
 
 	#!/usr/bin/python
