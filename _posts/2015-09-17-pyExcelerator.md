@@ -30,6 +30,7 @@ categories: Python
 	cd pyexcelerator-0.6.4.1
 
 安装
+
 	#Ubuntu
 	sudo python setup.py install
 
