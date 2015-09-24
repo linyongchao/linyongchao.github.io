@@ -12,6 +12,7 @@ categories: Python
 
 [官网](https://pypi.python.org/pypi/pyExcelerator/)有详细介绍。
 简单来说，其
+
 * 支持 Excel 97/2000/XP/2003
 * 支持 xls2txt, xls2csv, xls2html
 * 只依赖 Python 2.4+，不依赖 Excel
@@ -43,7 +44,8 @@ categories: Python
 
 ## 使用
 
-1. 创建一个具有一张空表（mysheet）的 Excel 文件（test.xls）
+### 建表
+创建一个具有一张空表（mysheet）的 Excel 文件（test.xls）
 
 	#!/usr/bin/python
 	# -*- coding: utf-8 -*-
@@ -58,7 +60,7 @@ categories: Python
 	#保存
 	w.save('test.xls')
 
-2. 写入
+### 写入
 提供的写入方法为：
 
 	write(row,col,context,style)
@@ -89,7 +91,7 @@ categories: Python
 	EnStyle.font.outline = True
 	ws.write(0,2,u"Jerry",EnStyle)
 
-3. 合并单元格
+### 合并单元格
 提供的方法为：
 
 	write_merge( r1, r2, c1, c2, context, style)
@@ -118,7 +120,7 @@ categories: Python
 
 若需要，将断言注释掉即可支持列内合并
 
-4. 行高和列宽
+### 行高和列宽
 
 	#行高
 	ws.row(0).height = 2000
@@ -133,7 +135,7 @@ categories: Python
 列宽2000 ≈ 1.1 cm
 实际单位有待具体研究
 
-5. 写入公式
+### 写入公式
 
 	ws.write(0,0,1)
 	ws.write(0,1,10)
