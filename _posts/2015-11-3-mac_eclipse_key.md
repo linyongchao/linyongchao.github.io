@@ -8,9 +8,9 @@ categories: Mac eclipse
 * content
 {:toc}
 
-command + alt + j:给方法添加注释
+command + alt + j ： 给方法添加注释
 
-command + alt + s:get,set 方法
+command + alt + s ： get,set 方法
 
-command + shift + f:代码格式化
+command + shift + f ： 代码格式化
 
