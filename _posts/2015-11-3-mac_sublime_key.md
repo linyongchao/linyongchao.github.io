@@ -8,6 +8,10 @@ categories: Mac Sublime
 * content
 {:toc}
 
+Alt+上：移到行首，再按，移动到上一行
+
+Alt+下：移到行末，再按，移动到下一行
+
 Alt＋Shift＋上：选中光标位置到该行开头，再按，选中上一行
 
 Alt＋Shift＋下：选中光标位置到该行结尾，再按，选中下一行
@@ -22,6 +26,3 @@ Ctrl+command+下：下移一行
 
 Ctrl+Shift+k：删除一行
 
-Alt+上：移到行首，再按，移动到上一行
-
-Alt+下：移到行末，再按，移动到下一行
