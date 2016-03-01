@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "MySQL 服务开始与停止"
+title:  "MySQL 索引类型"
 date:   2015-09-14 19:57:05
 categories: MySQL
 ---
@@ -8,14 +8,12 @@ categories: MySQL
 * content
 {:toc}
 
-## CentOS
+1. primary：唯一索引，不允许为null。
 
-	service mysql restart
-	/etc/init.d/mysqld start
-	/etc/init.d/mysqld stop
+2. key：普通非唯一索引。
 
-## Ubuntu
+3. unique：表示唯一的，不允许重复的索引，可以为null。
 
-	sudo /etc/init.d/mysql restart
-	sudo /etc/init.d/mysql start
-	sudo /etc/init.d/mysql stop
+4. fulltext: 表示全文搜索的索引。 FULLTEXT用于搜索很长一篇文章的时候，效果最好。用在比较短的文本，如果就一两行字的，普通的INDEX 也可以。
+
+5. spatial：空间索引。
