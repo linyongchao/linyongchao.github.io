@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "MySQL 索引类型"
-date:   2016-03-01 16:17:05
+title:  "MySQL 服务开始与停止"
+date:   2015-09-14 19:57:05
 categories: MySQL linux CentOS Ubuntu
 ---
 
