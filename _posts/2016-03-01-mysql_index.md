@@ -8,6 +8,7 @@ categories: MySQL
 * content
 {:toc}
 
+### MySQL 索引类型
 
 1. primary：唯一索引，不允许为null。
 
