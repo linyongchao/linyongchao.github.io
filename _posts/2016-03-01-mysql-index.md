@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "MySQL 服务开始与停止"
-date:   2016-03-01 16:57:05
+date:   2016-02-28 16:57:05
 categories: MySQL
 ---
 
