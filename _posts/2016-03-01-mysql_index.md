@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  MySQL 索引类型
-date:   2016-03-01 15:54:54
+date:   2016-03-01 10:54:54
 categories: MySQL
 ---
 
