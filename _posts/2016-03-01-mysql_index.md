@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  mysql 索引类型
+title:  MySQL 索引类型
 date:   2016-03-01 15:54:54
-categories: mysql
+categories: MySQL
 ---
 
 * content
