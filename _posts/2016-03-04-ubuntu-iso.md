@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Ubuntu 打包 ISO 镜像"
-date:   2016-03-04 17:57:05
+date:   2016-02-27 19:57:05
 categories: Ubuntu
 ---
 
