@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Ubuntu 设置 tomcat 自动启动"
-date:   2016-03-11 19:57:05
+date:   2016-02-28 19:57:05
 categories: Ubuntu tomcat
 ---
 
