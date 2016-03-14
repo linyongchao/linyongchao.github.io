@@ -8,9 +8,9 @@ categories: Python
 * content
 {:toc}
 
-## 方法一
+## has_key() 方法
 
-has_key() 方法
+该方法是为了支持2.2之前的代码留下的，不建议使用。Python3已删除该函数。
 
 	>>> d = {'name':{},'age':{}}
 	>>> print d.has_key('name')
@@ -18,9 +18,9 @@ has_key() 方法
 	>>> print d.has_key('sex')
 	False
 
-## 方法二
+## 间接 in 方法
 
-in 方法，其中 d.keys() 列出字典所有的key
+借助 d.keys() 列出字典所有的key
 
 	>>> d = {'name':{},'age':{}}
 	>>> print 'name' in d.keys()
@@ -29,4 +29,14 @@ in 方法，其中 d.keys() 列出字典所有的key
 	False
 	>>>
 
+## 直接 in 方法
+
+官方文档推荐用法
+
+	>>> d = {'name':{},'age':{}}
+	>>> print 'name' in d
+	True
+	>>> print 'sex' in d
+	False
+	>>>
 
