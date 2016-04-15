@@ -2,7 +2,7 @@
 layout: post
 title:  "python操作mysql"
 date:   2015-08-07 12:04:54
-categories: python
+categories: Python
 ---
 
 * content
