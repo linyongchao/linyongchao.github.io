@@ -8,7 +8,7 @@ categories: RESTful API
 * content
 {:toc}
 
-本文来自：[阮一峰:RESTful API 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
+本文来自：[阮一峰:RESTful API 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)  
 另外参考：[Restful API 的设计规范](http://www.tuicool.com/articles/bUZNZbZ)
 
 ## 协议
@@ -25,29 +25,29 @@ API与用户的通信协议，总是使用HTTPs协议。
 
 	https://example.org/api/
 
-##演进
+## 演进
 
 ### 版本
 
 1. 将版本号放入URL：
 
-	https://api.example.com/v1/
+		https://api.example.com/v1/
 
 2. 将版本号放在HTTP头信息中：
 
-	Accept Header： Accept: application/json+v1
+		Accept Header： Accept: application/json+v1
 
 3. 自定义 Header： 
 
-	X-Api-Version: 1
+		X-Api-Version: 1
 
 ### 失效
 
 随着系统发展，总有一些API失效或者迁移  
-对失效的API，返回 404 not found 或 410 gone  
-对迁移的API，返回 301 重定向
+* 对失效的API，返回 404 Not Found 或 410 Gone 
+* 对迁移的API，返回 301 重定向
 
-## 路径(URI)
+## 路径
 
 路径(URI)表示资源，一般对应服务器端领域模型中的实体类。  
 URI表示资源有两种方式：资源集合、单个资源
@@ -122,34 +122,36 @@ URI表示资源有两种方式：资源集合、单个资源
 
 1. 符合HTTP规范
 
-| Method    | Response      |
-| ----------|:-------------:|
-| GET       | 单个对象、集合 	|
-| POST      | 新增成功的对象  	|
-| PUT/PATCH | 更新成功的对象  	|
-| DELETE 	| 空      		|
+	| Method    | Response      |
+	| ----------|:-------------:|
+	| GET       | 单个对象、集合 	|
+	| POST      | 新增成功的对象  	|
+	| PUT/PATCH | 更新成功的对象  	|
+	| DELETE 	| 空      		|
 
 2. 不要包装
 
-Response 的 body 直接就是数据，不要做多余的包装。错误示例：
+	Response 的 body 直接就是数据，不要做多余的包装。错误示例：
 
-	{
-    	"success":true,
-    	"data":{"id":1,"name":"demo"},
-	}
+		{
+    		"success":true,
+    		"data":{"id":1,"name":"demo"},
+		}
 
-3. 时间用长整形(毫秒数)
+3. 时间用长整形
 
-客户端按需解析
+	返回一个毫秒数，客户端按需解析
 
-4. 不传 null 字段
+4. 不传 NULL 字段
 5. 分页
 
-	{
-    	"page":{"limit":10,"offset":0,"total":729},
-    	"data":[{},{},{}...]
-	}
+		{
+    		"page":{"limit":10,"offset":0,"total":729},
+    		"data":[{},{},{}...]
+		}
 
+- - -
+- - -
 - - -
 
 ## 过滤信息
