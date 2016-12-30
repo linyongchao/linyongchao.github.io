@@ -44,7 +44,8 @@ API与用户的通信协议，总是使用HTTPs协议。
 ### 失效
 
 随着系统发展，总有一些API失效或者迁移  
-* 对失效的API，返回 404 Not Found 或 410 Gone 
+
+* 对失效的API，返回 404 Not Found 或 410 Gone
 * 对迁移的API，返回 301 重定向
 
 ## 路径
@@ -63,12 +64,12 @@ URI表示资源有两种方式：资源集合、单个资源
 
 ### 资源集合
 
-	/zoos 			//所有动物园
+	/zoos 	//所有动物园
 	/zoos/1/animals //id为1的动物园中的所有动物
 
 ### 单个资源
 
-	/zoos/1 	//id为1的动物园
+	/zoos/1 //id为1的动物园
 	/zoos/1;2;3 //id为1，2，3的动物园
 
 ### 举例
@@ -100,23 +101,23 @@ URI表示资源有两种方式：资源集合、单个资源
 下面是一些例子：
 
 	GET：查询
-	GET /zoos				//查询所有动物园
-	GET /zoos/1				//查询id为1的动物园
+	GET /zoos		//查询所有动物园
+	GET /zoos/1		//查询id为1的动物园
 	GET /zoos/1/employees	//查询id为1的动物园的所有雇员
 	
 	POST：创建
-	POST /zoos 				//创建一个动物园
+	POST /zoos 		//创建一个动物园
 	POST /zoos/1/employees  //为id为1的动物园创建雇员
 
 	PUT：更新，客户端提供完整的更新后的资源
-	PUT /zoos/1				//更新id为1的动物园信息
+	PUT /zoos/1		//更新id为1的动物园信息
 	
 	PATCH：更新，客户端提供要更新的部分字段
-	PATCH /zoos/1			//更新id为1的动物园信息
+	PATCH /zoos/1		//更新id为1的动物园信息
 
 	DELETE：删除
 	DELETE /zoos/1/animals  //删除id为1的动物园内的所有动物
-	DELETE /zoos/1			//删除id为1的动物园
+	DELETE /zoos/1		//删除id为1的动物园
 
 ## Response
 
@@ -134,8 +135,8 @@ URI表示资源有两种方式：资源集合、单个资源
 	Response 的 body 直接就是数据，不要做多余的包装。错误示例：
 
 		{
-    		"success":true,
-    		"data":{"id":1,"name":"demo"},
+    	"success":true,
+    	"data":{"id":1,"name":"demo"},
 		}
 
 3. 时间用长整形
@@ -146,8 +147,8 @@ URI表示资源有两种方式：资源集合、单个资源
 5. 分页
 
 		{
-    		"page":{"limit":10,"offset":0,"total":729},
-    		"data":[{},{},{}...]
+    	"page":{"limit":10,"offset":0,"total":729},
+    	"data":[{},{},{}...]
 		}
 
 - - -
