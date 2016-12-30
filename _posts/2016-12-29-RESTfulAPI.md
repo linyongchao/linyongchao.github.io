@@ -64,12 +64,12 @@ URI表示资源有两种方式：资源集合、单个资源
 
 ### 资源集合
 
-	/zoos 	//所有动物园
+	/zoos 		//所有动物园
 	/zoos/1/animals //id为1的动物园中的所有动物
 
 ### 单个资源
 
-	/zoos/1 //id为1的动物园
+	/zoos/1 	//id为1的动物园
 	/zoos/1;2;3 //id为1，2，3的动物园
 
 ### 举例
@@ -197,17 +197,6 @@ URI表示资源有两种方式：资源集合、单个资源
 	{
     	error: "Invalid API key"
 	}
-
-## 返回结果
-
-针对不同操作，服务器向用户返回的结果应该符合以下规范：
-
-	GET /collection：返回资源对象的列表（数组）
-	GET /collection/resource：返回单个资源对象
-	POST /collection：返回新生成的资源对象
-	PUT /collection/resource：返回完整的资源对象
-	PATCH /collection/resource：返回完整的资源对象
-	DELETE /collection/resource：返回一个空文档
 
 ## 其他
 
