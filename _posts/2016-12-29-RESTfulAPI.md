@@ -9,6 +9,7 @@ categories: RESTful API
 {:toc}
 
 本文来自：[阮一峰:RESTful API 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
+另外参考：[Restful API 的设计规范](http://www.tuicool.com/articles/bUZNZbZ)
 
 ## 协议
 
@@ -24,20 +25,53 @@ API与用户的通信协议，总是使用HTTPs协议。
 
 	https://example.org/api/
 
-## 版本
+##演进
 
-应该将API的版本号放入URL：
+### 版本
+
+1. 将版本号放入URL：
 
 	https://api.example.com/v1/
 
-另一种做法是，将版本号放在HTTP头信息中，但不如放入URL方便和直观。Github采用这种做法。
+2. 将版本号放在HTTP头信息中：
 
-## 路径
+	Accept Header： Accept: application/json+v1
 
-* 路径又称"终点"（endpoint），表示API的具体网址。  
-* 在RESTful架构中，每个网址代表一种资源（resource），所以网址中不能有动词，只能有名词。  
-* 所用的名词往往与数据库的表名对应。  
-* 因为表都是同种记录的"集合"（collection），所以API中的名词也应该使用复数。  
+3. 自定义 Header： 
+
+	X-Api-Version: 1
+
+### 失效
+
+随着系统发展，总有一些API失效或者迁移  
+对失效的API，返回 404 not found 或 410 gone  
+对迁移的API，返回 301 重定向
+
+## 路径(URI)
+
+路径(URI)表示资源，一般对应服务器端领域模型中的实体类。  
+URI表示资源有两种方式：资源集合、单个资源
+
+### 规范
+
+* 不用大写
+* 用中杠 - 不用下杠 _
+* 不要有动词，要用名词
+* 名词使用复数形式
+* 参数列表要encode
+* 避免层级过深的URI
+
+### 资源集合
+
+	/zoos 			//所有动物园
+	/zoos/1/animals //id为1的动物园中的所有动物
+
+### 单个资源
+
+	/zoos/1 	//id为1的动物园
+	/zoos/1;2;3 //id为1，2，3的动物园
+
+### 举例
 
 举例来说，有一个API提供动物园（zoo）的信息，还包括各种动物和雇员的信息，则它的路径应该设计成下面这样：
 
@@ -45,30 +79,78 @@ API与用户的通信协议，总是使用HTTPs协议。
 	https://api.example.com/v1/animals
 	https://api.example.com/v1/employees
 
+过深的导航容易导致url膨胀，不易维护，应尽量使用查询参数代替路径中的实体导航，如：
+	
+	/zoos/1/areas/3/animals/4 ==> /animals?zoo=1&area=3 
 
-## HTTP动词
+## Request
 
-对于资源的具体操作类型，由HTTP动词表示。  
-常用的HTTP动词如下（括号里是对应的SQL命令）：
+通过标准HTTP方法对资源进行CRUD。  
+常用的HTTP方法如下：
 
-	GET（SELECT）：从服务器取出资源（一项或多项）。
-	POST（CREATE）：在服务器新建一个资源。
-	PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。
-	PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。
-	DELETE（DELETE）：从服务器删除资源。
-	HEAD：获取资源的元数据。
-	OPTIONS：获取信息，关于资源的哪些属性是客户端可以改变的。
+	GET   （SELECT）：从服务器取出资源（一项或多项）
+	POST  （CREATE）：在服务器新建一个资源
+	PUT   （UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）
+	PATCH （UPDATE）：在服务器更新资源（客户端提供改变的属性）
+	DELETE（DELETE）：从服务器删除资源
+
+	HEAD 	：获取资源的元数据（不常用）
+	OPTIONS	：获取信息，关于资源的哪些属性是客户端可以改变的（不常用）
 
 下面是一些例子：
 
-	GET /zoos：列出所有动物园
-	POST /zoos：新建一个动物园
-	GET /zoos/ID：获取某个指定动物园的信息
-	PUT /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）
-	PATCH /zoos/ID：更新某个指定动物园的信息（提供该动物园的部分信息）
-	DELETE /zoos/ID：删除某个动物园
-	GET /zoos/ID/animals：列出某个指定动物园的所有动物
-	DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物
+	GET：查询
+	GET /zoos				//查询所有动物园
+	GET /zoos/1				//查询id为1的动物园
+	GET /zoos/1/employees	//查询id为1的动物园的所有雇员
+	
+	POST：创建
+	POST /zoos 				//创建一个动物园
+	POST /zoos/1/employees  //为id为1的动物园创建雇员
+
+	PUT：更新，客户端提供完整的更新后的资源
+	PUT /zoos/1				//更新id为1的动物园信息
+	
+	PATCH：更新，客户端提供要更新的部分字段
+	PATCH /zoos/1			//更新id为1的动物园信息
+
+	DELETE：删除
+	DELETE /zoos/1/animals  //删除id为1的动物园内的所有动物
+	DELETE /zoos/1			//删除id为1的动物园
+
+## Response
+
+1. 符合HTTP规范
+
+| Method    | Response      |
+| ----------|:-------------:|
+| GET       | 单个对象、集合 	|
+| POST      | 新增成功的对象  	|
+| PUT/PATCH | 更新成功的对象  	|
+| DELETE 	| 空      		|
+
+2. 不要包装
+
+Response 的 body 直接就是数据，不要做多余的包装。错误示例：
+
+	{
+    	"success":true,
+    	"data":{"id":1,"name":"demo"},
+	}
+
+3. 时间用长整形(毫秒数)
+
+客户端按需解析
+
+4. 不传 null 字段
+5. 分页
+
+	{
+    	"page":{"limit":10,"offset":0,"total":729},
+    	"data":[{},{},{}...]
+	}
+
+- - -
 
 ## 过滤信息
 
