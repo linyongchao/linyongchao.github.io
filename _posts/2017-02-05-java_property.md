@@ -74,4 +74,4 @@ categories: Java eclipse
 
 ## 常用插件
 
-JBossTool(Hibernate插件)  Spring-sources-tools(Spring插件)  FindBugs
+JBossTool(Hibernate插件)  Spring-sources-tools(Spring插件)  FindBugs -> http://findbugs.cs.umd.edu/eclipse
