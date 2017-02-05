@@ -2,7 +2,7 @@
 layout: post
 title:  "JDK和eclipse配置"
 date:   2017-02-05 17:16:54
-categories: Java
+categories: Java eclipse
 ---
 
 * content
