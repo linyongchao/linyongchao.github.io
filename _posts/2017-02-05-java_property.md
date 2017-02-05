@@ -10,6 +10,7 @@ categories: Java eclipse
 
 今天升级了下JDK和eclipse，发现好多配置都找不到位置，囧  
 特记录如下：
+
 ## JDK环境变量
 
 	cd ~
