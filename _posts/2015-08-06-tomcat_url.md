@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "tomcat url 长度限制"
+title:  Tomcat URL 长度限制"
 date:   2015-08-06 16:54:54
-categories: tomcat
+categories: Tomcat
 ---
 
 * content
