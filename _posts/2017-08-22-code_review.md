@@ -9,5 +9,5 @@ categories: Java
 {:toc}
 
 
-![优化前](https://github.com/linyongchao/linyongchao.github.io/blob/master/static/img/code-review-1-before.png "优化前")  
-![优化后](https://github.com/linyongchao/linyongchao.github.io/blob/master/static/img/code-review-1-after.png "优化后")
+![image](https://github.com/linyongchao/linyongchao.github.io/blob/master/static/img/code-review-1-before.png)  
+![image](https://github.com/linyongchao/linyongchao.github.io/blob/master/static/img/code-review-1-after.png)
