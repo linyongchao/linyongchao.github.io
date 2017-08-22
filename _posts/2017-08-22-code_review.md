@@ -9,5 +9,5 @@ categories: Java
 {:toc}
 
 
-![image](https://github.com/linyongchao/linyongchao.github.io/blob/master/static/img/code-review-1-before.png)  
-![image](https://github.com/linyongchao/linyongchao.github.io/blob/master/static/img/code-review-1-after.png)
+![image](http://7tszu0.com1.z0.glb.clouddn.com/code-review-1-before.png "优化前")  
+![image](http://7tszu0.com1.z0.glb.clouddn.com/code-review-1-after.png "优化后")
