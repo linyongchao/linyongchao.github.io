@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "CentOS 下安装 MongoDB"
+title:  CentOS 下安装 MongoDB
 date:   2015-09-14 15:26:05
-categories: CentOS MongoDB
+categories: Linux MongoDB
 ---
 
 * content

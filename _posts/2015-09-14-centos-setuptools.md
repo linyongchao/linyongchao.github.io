@@ -2,7 +2,7 @@
 layout: post
 title:  "CentOS 下安装 setuptools"
 date:   2015-09-14 17:36:05
-categories: CentOS
+categories: Linux
 ---
 
 * content

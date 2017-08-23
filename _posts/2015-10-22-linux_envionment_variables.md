@@ -2,7 +2,7 @@
 layout: post
 title:  Linux 环境变量
 date:   2015-10-22 14:49:05
-categories: linux
+categories: Linux
 ---
 
 * content

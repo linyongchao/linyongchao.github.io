@@ -2,7 +2,7 @@
 layout: post
 title:  "CentOS 下安装 pip"
 date:   2015-09-14 14:37:05
-categories: CentOS Python
+categories: Linux Python
 ---
 
 * content

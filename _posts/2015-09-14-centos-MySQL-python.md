@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "CentOS 下安装 MySQL-python"
+title:  CentOS 下安装 MySQL-python
 date:   2015-09-14 17:26:05
-categories: CentOS Python
+categories: Linux Python
 ---
 
 * content

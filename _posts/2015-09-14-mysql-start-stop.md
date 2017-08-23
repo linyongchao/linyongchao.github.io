@@ -2,7 +2,7 @@
 layout: post
 title:  "MySQL 服务开始与停止"
 date:   2015-09-14 19:57:05
-categories: MySQL linux CentOS Ubuntu
+categories: MySQL Linux
 ---
 
 * content
