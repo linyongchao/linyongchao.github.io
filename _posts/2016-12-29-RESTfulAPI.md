@@ -13,7 +13,7 @@ categories: RESTful API
 
 ## 协议
 
-API与用户的通信协议，总是使用HTTPs协议。
+API与用户的通信协议，总是使用HTTPS协议。
 
 ## 域名
 
@@ -82,7 +82,7 @@ URI表示资源有两种方式：资源集合、单个资源
 
 过深的导航容易导致url膨胀，不易维护，应尽量使用查询参数代替路径中的实体导航，如：
 	
-	/zoos/1/areas/3/animals/4 ==> /animals?zoo=1&area=3 
+	/zoos/1/areas/3/animals ==> /animals?zoo=1&area=3 
 
 ## Request
 
