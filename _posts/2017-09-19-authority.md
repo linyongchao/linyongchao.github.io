@@ -5,6 +5,8 @@ date:   2017-09-19 15:53:05
 categories: Linux
 ---
 
+* content
+{:toc}
 
 1. 文件权限: 
 	* r: 可读，可以使用类似cat等命令查看文件内容
