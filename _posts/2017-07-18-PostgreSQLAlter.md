@@ -8,6 +8,20 @@ categories: PostgreSQL
 * content
 {:toc}
 
+## 命令行
+
+### 查看所有库
+
+	\l
+
+### 查看所有表
+
+	\dt
+	
+### 查看表结构
+
+	\d [table]
+
 ## 表
 
 ### 复制表
