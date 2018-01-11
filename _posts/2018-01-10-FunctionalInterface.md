@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  函数式接口
+title:  FunctionalInterface
 date:   2018-01-10 17:33:05
 categories: JDK
 ---
@@ -109,7 +109,7 @@ JDK1.8增加了一个函数式接口特性，并且增加了一个函数式接�
 实例3：
 	
 	/**
-	 * 如果抽象方法是重写Object对象中的方法则不列入抽象方法的统计
+	 * 如果抽象方法是重写Object对象中的方法则不列入抽象方法的统计<br>
 	 * FunctionTest3依然是一个有且仅有一个抽象方法的接口
 	 * 
 	 * @author lin
@@ -125,6 +125,26 @@ JDK1.8增加了一个函数式接口特性，并且增加了一个函数式接�
 		@Override
 		boolean equals(Object obj);
 	
-		@Override
 		String toString();
+	}
+	
+实例4
+
+	/**
+	 * 静态方法和默认方法也不会认为是抽象方法
+	 * 
+	 * @author lin
+	 * @date 2018年1月11日 下午6:48:10
+	 */
+	@FunctionalInterface
+	public interface FunctionTest4 {
+		public void test();
+	
+		default String getName() {
+			return this.getName();
+		}
+	
+		static void print() {
+			System.out.println("now in FunctionTest4");
+		}
 	}
