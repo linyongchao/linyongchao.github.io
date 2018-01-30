@@ -9,6 +9,12 @@ categories: JDK
 {:toc}
 
 JDK1.8增加了一个Predicate接口，现在就来探究一下。
+
+### 后记
+
+除了支持一个泛型参数的 Predicate 接口  
+还有接收对应类型的 DoublePredicate、IntPredicate、LongPredicate  
+还有接收两个泛型参数的 BiPredicate 接口
 	
 ### 源码
 
