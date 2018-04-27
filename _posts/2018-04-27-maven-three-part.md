@@ -11,32 +11,33 @@ categories: Maven
 ## 确定包版本
 
 以 ojdbc6.jar 为例  
+
 1. 点击[下载](http://7xiqe6.com1.z0.glb.clouddn.com/ojdbc6.jar)  
 2. 执行命令 ```tar xf ojdbc6.jar``` 解压 jar 包  
 3. 读取 ```META-INF/MANIFEST.MF``` 文件，确定包版本为 11.1.0.7.0
 
-	Manifest-Version: 1.0
-	Implementation-Vendor: Oracle Corporation
-	Implementation-Title: ojdbc6.jar
-	Implementation-Version: Oracle JDBC Driver version - "11.1.0.7.0-Produ
-	 ction"
-	Implementation-Time: Thu Aug 28 17:39:02 2008
-	Specification-Vendor: Oracle Corporation
-	Sealed: true
-	Created-By: 1.6.0 (Sun Microsystems Inc.)
-	Specification-Title: Oracle JDBC driver classes for use with JDK6
-	Specification-Version: Oracle JDBC Driver version - "11.1.0.7.0-Produc
-	 tion"
-	Main-Class: oracle.jdbc.OracleDriver
-	
-	Name: oracle/sql/converter_xcharset/
-	Sealed: false
-	
-	Name: oracle/sql/
-	Sealed: false
-	
-	Name: oracle/sql/converter/
-	Sealed: false
+		Manifest-Version: 1.0
+		Implementation-Vendor: Oracle Corporation
+		Implementation-Title: ojdbc6.jar
+		Implementation-Version: Oracle JDBC Driver version - "11.1.0.7.0-Produ
+		 ction"
+		Implementation-Time: Thu Aug 28 17:39:02 2008
+		Specification-Vendor: Oracle Corporation
+		Sealed: true
+		Created-By: 1.6.0 (Sun Microsystems Inc.)
+		Specification-Title: Oracle JDBC driver classes for use with JDK6
+		Specification-Version: Oracle JDBC Driver version - "11.1.0.7.0-Produc
+		 tion"
+		Main-Class: oracle.jdbc.OracleDriver
+		
+		Name: oracle/sql/converter_xcharset/
+		Sealed: false
+		
+		Name: oracle/sql/
+		Sealed: false
+		
+		Name: oracle/sql/converter/
+		Sealed: false
 	
 ## 本地库
 
