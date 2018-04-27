@@ -20,3 +20,15 @@ Mac 虽说类似 Linux，但是有些命令还是有所区别的，本文就用�
 	COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
 	java    19718  lin   50u  IPv6 0x69cbe10b08770d2b      0t0  TCP *:http-alt (LISTEN)
 	➜  ~
+
+### TOP 排序
+
+Linux
+
+	CPU排序		P
+	内存排序		M
+	
+Mac
+
+	CPU排序		ocpu
+	内存排序		ovsize
