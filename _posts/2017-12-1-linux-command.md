@@ -12,3 +12,11 @@ categories: Linux
 
 	netstat -apn|grep [port]
 	
+### 修改所属用户、所属用户组
+
+	chown -R root:root /tmp
+	
+### 筛选并截取
+
+	cat login |grep 毫秒|awk -F 'controller' '{print $2}'
+	
