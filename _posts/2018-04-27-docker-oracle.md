@@ -8,6 +8,8 @@ categories: Docker Oracle
 * content
 {:toc}
 
+### 步骤
+
 1. 查看 Docker 版本
 
 		docker --version
