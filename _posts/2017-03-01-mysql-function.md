@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "MySQL 函数"
+title:  MySQL 函数
 date:   2017-03-01 19:57:05
 categories: MySQL
 ---
