@@ -22,10 +22,10 @@ Web 应用启动顺序为：Listener -> Filter -> Servlet
 
 1. 首先在 application.xml 中声明 bean
 
-		<bean id="mosLog" class="com.uusafe.mos.log.client.MosLog"></bean>
+		<bean id="Log" class="com.log.client.Log"></bean>
 
 2. 然后在 LoginFilter 中获取 bean
 
-		private IMosLog mosLog;
+		private ILog Log;
 		ApplicationContext ac = WebApplicationContextUtils.getWebApplicationContext(request.getServletContext());
-		mosLog = (IMosLog) ac.getBean("mosLog");
+		log = (ILog) ac.getBean("Log");
