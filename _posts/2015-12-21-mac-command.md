@@ -32,3 +32,19 @@ Mac
 
 	CPU排序		ocpu
 	内存排序		ovsize
+	
+### 重建索引
+
+方法见[这里](https://www.jianshu.com/p/d76dbc097521)
+
+1. 关闭进程：```sudo mdutil -a -i off```
+2. 重启进程：```sudo mdutil -a -i o```
+3. 删除旧索引：```sudo rm -rf /.Spotlight-V100/*```
+
+引申阅读见[这里](https://sspai.com/post/33089)：```让部分文件不被 Spotlight 搜到```
+
+1. 在【系统偏好设置】-->【聚焦】中设置搜索的内容或者不在搜索范围内的内容
+2. 给文件夹添加后缀```.noindex```
+
+
+

@@ -11,3 +11,14 @@ categories: Mac
 ### 强制刷新
 
 	shift + command + R
+
+### 显示隐藏文件
+
+	shift + command + .
+	
+### 强制退出或强制重启应用程序
+
+	option + cmmand + ESC
+	
+	
+
