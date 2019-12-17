@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  大补课【1】移位、异或、反码、补码
+title:  大补课【1】异或（捎带移位、反码、补码）
 date:   2019-12-15 23:45:54
 categories: Java
 ---
