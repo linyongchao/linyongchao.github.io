@@ -38,7 +38,7 @@ Mac
 方法见[这里](https://www.jianshu.com/p/d76dbc097521)
 
 1. 关闭进程：```sudo mdutil -a -i off```
-2. 重启进程：```sudo mdutil -a -i o```
+2. 重启进程：```sudo mdutil -a -i on``` （系统会重建索引列表）
 3. 删除旧索引：```sudo rm -rf /.Spotlight-V100/*```
 
 引申阅读见[这里](https://sspai.com/post/33089)：```让部分文件不被 Spotlight 搜到```
