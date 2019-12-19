@@ -17,10 +17,14 @@ Twitter 的雪花算法共计 64 位，恰好是一个 Long 类型，从左到�
 2. 第二部分，共 41 位，距自定义起始时间的时间戳（毫秒值），可用约69年
 3. 第三部分，共 10 位，机器ID，可表示 2^10=1024台机器
 4. 第四部分，共 12 位，毫秒内的序列号，2^12=4096
-其结构如下图所示：
-![](https://img-blog.csdnimg.cn/20190224021518160.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAyNjY5ODg=,size_16,color_FFFFFF,t_70)
-还有一种拆分方式，就是将第三部分的机器ID拆分成 5 位的数据中心ID和5位的机器ID，如下图所示：
-![](https://img-blog.csdnimg.cn/20190726091202771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAzOTg3NzE=,size_16,color_FFFFFF,t_70)
+
+其结构如下图所示：  
+
+![](https://img-blog.csdnimg.cn/20190224021518160.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAyNjY5ODg=,size_16,color_FFFFFF,t_70)  
+
+还有一种拆分方式，就是将第三部分的机器ID拆分成 5 位的数据中心ID和5位的机器ID，如下图所示：  
+
+![](https://img-blog.csdnimg.cn/20190726091202771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAzOTg3NzE=,size_16,color_FFFFFF,t_70)  
 
 ### 优势
 
