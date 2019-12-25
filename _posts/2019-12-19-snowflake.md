@@ -196,38 +196,21 @@ Twitter 的雪花算法共计 64 位，恰好是一个 Long 类型，从左到�
 	 * @author
 	 */
 	public class IdCenterUtil {
-	    private static final Logger logger = LoggerFactory.getLogger(IdCenterUtil.class);
-	    private static IdCenterUtil instance = null;
+	    private volatile static IdCenterUtil instance = null;
 	
 	    private IdCenterUtil() {
 	    }
 	
-	    public synchronized static IdCenterUtil getInstance() {
+	    public static IdCenterUtil getInstance() {
 	        if (instance == null) {
 	            synchronized (IdCenterUtil.class) {
 	                if (instance == null) {
-	                    try {
-	                        instance = new IdCenterUtil();
-	                        instance.initParam();
-	                    } catch (Exception e) {
-	                        logger.error("", e);
-	                    }
+	                    instance = new IdCenterUtil();
+	                    instance.initParam();
 	                }
 	            }
 	        }
 	        return instance;
-	    }
-	
-	    /**
-	     * 获取ip第几位 从1开始
-	     *
-	     * @param flag
-	     * @return
-	     */
-	    private Long getIpFlag(int flag) {
-	        String ip = IpUtil.getLocalIp();
-	        String[] ips = ip.split("[.]");
-	        return Long.valueOf(ips[flag - 1]);
 	    }
 	
 	    /**
@@ -278,6 +261,7 @@ Twitter 的雪花算法共计 64 位，恰好是一个 Long 类型，从左到�
 	     * 时间毫秒左移22位
 	     */
 	    private final long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
+	
 	    private final long sequenceMask = -1L ^ (-1L << sequenceBits);
 	
 	    private long lastTimestamp = -1L;
@@ -298,6 +282,18 @@ Twitter 的雪花算法共计 64 位，恰好是一个 Long 类型，从左到�
 	        if (datacenterId > maxWorkerId) {
 	            datacenterId = datacenterId % maxWorkerId;
 	        }
+	    }
+	
+	    /**
+	     * 获取ip第几位 从1开始
+	     *
+	     * @param flag
+	     * @return
+	     */
+	    private Long getIpFlag(int flag) {
+	        String ip = IpUtil.getLocalIp();
+	        String[] ips = ip.split("[.]");
+	        return Long.valueOf(ips[flag - 1]);
 	    }
 	
 	    /**
