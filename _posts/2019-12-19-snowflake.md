@@ -274,13 +274,13 @@ Twitter 的雪花算法共计 64 位，恰好是一个 Long 类型，从左到�
 	            throw new IllegalArgumentException("datacenterId is illegal: " + workerId);
 	        }
 	        workerId = getIpFlag(4);
-	        if (workerId > maxDatacenterId) {
-	            workerId = workerId % maxDatacenterId;
+	        if (workerId > maxWorkerId) {
+	            workerId = workerId % maxWorkerId;
 	        }
 	
 	        datacenterId = getIpFlag(3);
-	        if (datacenterId > maxWorkerId) {
-	            datacenterId = datacenterId % maxWorkerId;
+	        if (datacenterId > maxDatacenterId) {
+	            datacenterId = datacenterId % maxDatacenterId;
 	        }
 	    }
 	
