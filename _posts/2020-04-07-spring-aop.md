@@ -145,7 +145,10 @@ userId=6
 
 由上面的日志可以验证如下的切面执行顺序：
 * 正常情况
-![正常情况](https://linyongchao.github.io/static/img/aop/normal.png)
+
+	![正常情况](https://linyongchao.github.io/static/img/aop/normal.png)
+
 * 异常情况
-![异常情况](https://linyongchao.github.io/static/img/aop/throw.png)
+
+	![异常情况](https://linyongchao.github.io/static/img/aop/throw.png)
 
