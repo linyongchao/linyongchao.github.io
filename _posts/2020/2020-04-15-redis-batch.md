@@ -40,7 +40,7 @@ unix2dos 命令的安装:
 
 如果数据量很大，可以使用```--pipe```参数来启用pipe协议，它可以减少返回结果的输出、更快的执行指令：
 
-	cat data.txt | redis-cli --pipe
+	> cat data.txt | redis-cli --pipe
 	All data transferred. Waiting for the last reply...
 	Last reply received from server.
 	errors: 0, replies: 81920
