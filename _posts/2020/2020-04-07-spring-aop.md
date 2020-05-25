@@ -45,6 +45,9 @@ categories: Java
 
 ### 定义切面
 
+```ProceedingJoinPoint``` 参数只能放在 ```@Around``` 注解所在的方法，否则会报错：
+```java.lang.IllegalArgumentException: ProceedingJoinPoint is only supported for around advice```
+
 	@Aspect
 	@Component
 	public class TimeLogAspect {
