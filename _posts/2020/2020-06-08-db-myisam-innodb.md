@@ -2,7 +2,7 @@
 layout: post
 title:  MyISAM 和 InnoDB
 date:   2020-06-08 18:59:54
-categories: Java
+categories: MySQL
 ---
 
 * content
