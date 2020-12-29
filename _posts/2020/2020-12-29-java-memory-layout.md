@@ -26,7 +26,7 @@ Java 中数据类型主要分为原生类型、类、接口、数组这几种。
 
 根据 Java 虚拟机规范里面的描述：Java 对象分为三部分：对象头(Object Header), 实例数据(instance data)，对齐填充(padding)。如图：
 
-![CAP](https://linyongchao.github.io/static/img/memory-layout.jpg)
+![memory-layout](https://linyongchao.github.io/static/img/memory-layout.jpg)
 
 数组与对象类似，只是对象头部分多了代表存储长度的Length部分，其长度为4字节。
 
