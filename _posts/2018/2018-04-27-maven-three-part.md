@@ -12,9 +12,8 @@ categories: Maven
 
 以 ojdbc6.jar 为例  
 
-1. 点击[下载](http://7xiqe6.com1.z0.glb.clouddn.com/ojdbc6.jar)  
-2. 执行命令 ```tar xf ojdbc6.jar``` 解压 jar 包  
-3. 读取 ```META-INF/MANIFEST.MF``` 文件，确定包版本为 11.1.0.7.0
+1. 执行命令 ```tar xf ojdbc6.jar``` 解压 jar 包  
+2. 读取 ```META-INF/MANIFEST.MF``` 文件，确定包版本为 11.1.0.7.0
 
 		Manifest-Version: 1.0
 		Implementation-Vendor: Oracle Corporation
@@ -44,18 +43,12 @@ categories: Maven
 执行如下命令将 jar 包添加到本地 Maven 库：
 
 	mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.1.0.7.0 -Dpackaging=jar -Dfile=ojdbc6.jar
-	
-添加成功，效果如图：
 
-![Jar包添加成功](http://7tszu0.com1.z0.glb.clouddn.com/Maven-Nexus-1.png "Jar包添加成功")
-	
 ## 私库
 
 执行如下步骤将 jar 包添加到 Nexus 私库：
 
-1. 选择要添加的私库，进入上传页面：
-![选择私库](http://7tszu0.com1.z0.glb.clouddn.com/Maven-Nexus-2.png "选择私库")
-2. 选择本地 Maven 库中的 POM 文件和 jar 包
-![上传文件](http://7tszu0.com1.z0.glb.clouddn.com/Maven-Nexus-3.png "上传文件")
-3. 私库添加成功，获取引用
-![获取引用](http://7tszu0.com1.z0.glb.clouddn.com/Maven-Nexus-4.png "获取引用")
+1. 上传文件到私库：
+![upload](https://linyongchao.github.io/static/img/maven-upload.png)
+2. 获取引用
+![get](https://linyongchao.github.io/static/img/maven-get-quote.png)
