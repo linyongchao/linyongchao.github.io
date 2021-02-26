@@ -2,7 +2,7 @@
 layout: post
 title:  WebService
 date:   2018-08-30 15:46:54
-categories: Java
+categories: Java WebService
 ---
 
 * content
@@ -82,3 +82,17 @@ categories: Java
 示例：
 
 	wsimport -s /Users/lin/Documents/git/WebServiceTest/Client/src -p my.learn.wsimport -keep http://localhost:8088/MathService\?wsdl
+	
+## 注意
+
+原文见[这里](https://blog.csdn.net/xx244/article/details/90517650)
+
+在调用第三方 WebService 服务时，生成的调用路径并不一定和 wsdl 的 URL 一致，而是由 wsdl 中的 ```soap:address``` 标签指定的
+
+	<wsdl:service name="Service">
+		<wsdl:port binding="impl:prodService" name="prodService">
+			<wsdlsoap:address location="http://test/prodService"/>
+		</wsdl:port>
+	</wsdl:service>
+
+![memory-layout](https://linyongchao.github.io/static/img/webservice.png)
