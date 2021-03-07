@@ -58,15 +58,15 @@ Redis 采用定期删除和惰性删除相结合的过期策略:
 Redis 的定期扫描只会扫描设置了过期时间的键，因为设置了过期时间的键 Redis 会单独存储，所以不会出现扫描所有键的情况：
 
 	typedef struct redisDb {
-	   dict *dict;			//所有的键值对
-	   dict *expires; 		//设置了过期时间的键值对
+	   dict *dict;		//所有的键值对
+	   dict *expires; 	//设置了过期时间的键值对
 	   dict *blocking_keys; //被阻塞的key,如客户端执行BLPOP等阻塞指令时
 	   dict *watched_keys;  //WATCHED keys
-	   int id; 				//Database ID
+	   int id; 		//Database ID
 	   //... 省略了其他属性
 	} redisDb;
 
-### Redis 持久化如何应对过期数据
+### 持久化时如何应对过期数据
 
 1. RDB 持久化模式下
 	* 生成RDB文件时: Redis会检查保存的数据是否过期，如果过期则不会写入RDB文件
@@ -76,7 +76,7 @@ Redis 的定期扫描只会扫描设置了过期时间的键，因为设置了�
 	* 追加AOF文件时: 当有数据被删除，Redis会追加该删除命令倒AOF文件中去
 	* 重写AOF文件时: 已过期的数据不会写入新AOF文件(重写文件体积压缩的原因之一)
 
-### Redis slave 如何应对过期数据
+### slave 如何应对过期数据
 
 slave 不主动对过期键进行删除，master 在处理过期键时会发送del命令给 slave，此时 slave 才会删除对应的过期键
 
@@ -140,8 +140,8 @@ redisObject 对象中存在一个 lru 属性：
 	    unsigned type:4;		//对象类型（4位=0.5字节）
 	    unsigned encoding:4;	//编码（4位=0.5字节）
 	    unsigned lru:LRU_BITS;	//记录对象最后一次被应用程序访问的时间（24位=3字节）
-	    int refcount;			//引用计数。等于0时表示可以被垃圾回收（32位=4字节）
-	    void *ptr;				//指向底层实际的数据存储结构，如：SDS等(8字节)
+	    int refcount;		//引用计数。等于0时表示可以被垃圾回收（32位=4字节）
+	    void *ptr;			//指向底层实际的数据存储结构，如：SDS等(8字节)
 	} robj;
 
 lru 属性是创建对象的时候写入，对象被访问时也会进行更新。正常人的思路就是最后决定要不要删除某一个键肯定是用当前时间戳减去 lru，差值最大的就优先被删除。但是 Redis 里面并不是这么做的，Redis 中维护了一个全局属性 lru_clock，这个属性是通过一个全局函数 serverCron 每隔 100 毫秒执行一次来更新的，记录的是当前 unix 时间戳。
