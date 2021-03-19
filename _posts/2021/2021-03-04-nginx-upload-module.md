@@ -34,6 +34,19 @@ categories: Nginx
 	    upload_pass_args on;
 	    client_max_body_size 5000m;
 	}
+	location @upload_handler {
+	    proxy_http_version   1.1;
+	    proxy_set_header Connection "";
+	    proxy_pass http://127.0.0.1:9681;
+	    proxy_set_header Host $host:$server_port;
+	    proxy_ignore_client_abort on;
+	    proxy_connect_timeout   300s;
+	    proxy_send_timeout      900s;
+	    proxy_read_timeout 1800s;
+	    proxy_set_header X-Real-Ip $remote_addr;
+	    proxy_set_header X-Forwarded-For $remote_addr;
+	    client_max_body_size 5000m;
+	}
 
 ## 文档
 
