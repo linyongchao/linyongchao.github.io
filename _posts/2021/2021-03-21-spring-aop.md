@@ -19,7 +19,7 @@ categories: Java
 
 ### 切面举例
 
-![memory-layout](https://linyongchao.github.io/static/img/aip/1.webp)
+![memory-layout](https://linyongchao.github.io/static/img/aop/1.webp)
 
 比如上面这个例子，三个 service 对象执行过程中都存在安全、事务、日志、性能等相同行为，这些相同的行为显然应该在同一个地方管理。  
 有人说我可以写一个统一的工具类，在这些对象的方法前/后都嵌入此工具类，那问题来了，这些行为都属于业务无关的，使用工具类嵌入的方式导致与业务代码紧藕合，很不合工程规范，代码可维护性极差！  
@@ -27,13 +27,13 @@ categories: Java
 
 以性能为例，每个 service 都有不同的方法，我想统计每个方法的执行时间，如果不用切面你需要在每个方法的首尾计算下时间，然后相减：
 
-![memory-layout](https://linyongchao.github.io/static/img/aip/2.webp)
+![memory-layout](https://linyongchao.github.io/static/img/aop/2.webp)
 
 如果我要统计每一个 service 中每个方法的执行时间可想而知不用切面的话就得在每个方法的首尾都加上类似上述的逻辑，显然这样的代码可维护性是非常差的。这还只是统计时间，如果此方法又要加上事务、风控等，是不是也得在方法首尾加上事务开始、回滚等代码，可想而知业务代码与非业务代码严重藕合，这样的实现方式对工程是一种灾难，是不能接受的！
 
 ### 与切面相关的几个定义
 
-![memory-layout](https://linyongchao.github.io/static/img/aip/3.webp)
+![memory-layout](https://linyongchao.github.io/static/img/aop/3.webp)
 
 1. JoinPoint: 程序在执行流程中经过的一个个时间点，这个时间点可以是方法调用时，或者是执行方法中异常抛出时，也可以是属性被修改时等时机，在这些时间点上切面代码是可以（注意是可以但未必）被注入的
 
@@ -221,7 +221,7 @@ categories: Java
 	   }
 	}
 
-![memory-layout](https://linyongchao.github.io/static/img/aip/4.webp)
+![memory-layout](https://linyongchao.github.io/static/img/aop/4.webp)
 
 打印后发现这个 bean 的 class 居然不是 TestServiceImpl！而是
 
@@ -233,11 +233,11 @@ categories: Java
 
 代理在生活中随处可见，比如说我要买房，我一般不会直接和卖家对接，一般会和中介打交道，中介就是代理，卖家就是目标对象，我就是调用者，代理不仅实现了目标对象的行为（帮目标对象卖房），还可以添加上自己的动作（收保证金，签合同等）：
 
-![memory-layout](https://linyongchao.github.io/static/img/aip/5.webp)
+![memory-layout](https://linyongchao.github.io/static/img/aop/5.webp)
 
 用 UML 图来表示就是下面这样：
 
-![memory-layout](https://linyongchao.github.io/static/img/aip/6.webp)
+![memory-layout](https://linyongchao.github.io/static/img/aop/6.webp)
 
 Client 是直接和 Proxy 打交道的，Proxy 是 Client 要真正调用的 RealSubject 的代理，它确实执行了 RealSubject 的 request 方法，不过在这个执行前后 Proxy 也加上了额外的 PreRequest()，afterRequest() 方法，注意 Proxy 和 RealSubject 都实现了 Subject 这个接口，这样在 Client 看起来调用谁是没有什么分别的（面向接口编程，对调用方无感，因为实现的接口方法是一样的），Proxy 通过其属性持有真正要代理的目标对象（RealSubject）以达到既能调用目标对象的方法也能在方法前后注入其它逻辑的目的
 
@@ -245,7 +245,7 @@ Client 是直接和 Proxy 打交道的，Proxy 是 Client 要真正调用的 Rea
 
 要理解静态和动态这两个含义，我们首先需要理解一下 Java 程序的运行机制
 
-![memory-layout](https://linyongchao.github.io/static/img/aip/7.webp)
+![memory-layout](https://linyongchao.github.io/static/img/aop/7.webp)
 
 首先 Java 源代码经过编译生成字节码，然后再由 JVM 经过类加载，连接，初始化成 Java 类型，可以看到字节码是关键，静态和动态的区别就在于字节码生成的时机  
 
@@ -254,7 +254,7 @@ Client 是直接和 Proxy 打交道的，Proxy 是 Client 要真正调用的 Rea
 
 按这张 UML 类库依葫芦画瓢，傻瓜也会
 
-![memory-layout](https://linyongchao.github.io/static/img/aip/6.webp)
+![memory-layout](https://linyongchao.github.io/static/img/aop/6.webp)
 
 
 	public interface Subject {
