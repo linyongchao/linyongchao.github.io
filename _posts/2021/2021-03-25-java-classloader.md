@@ -8,7 +8,7 @@ categories: Java
 * content
 {:toc}
 
-本文参考[这里](https://mp.weixin.qq.com/s?__biz=MzU1ODg0NjM2NA==&mid=2247485798&idx=1&sn=4712f192b558566157aeb5a6200a0e85&chksm=fc211195cb569883fad12b04b750235f4d547b73c4ee39da9cbac69b443a46afafce7a6e0249&scene=132#wechat_redirect)
+本文参考[这里](https://mp.weixin.qq.com/s?__biz=MzU1ODg0NjM2NA==&mid=2247485798&idx=1&sn=4712f192b558566157aeb5a6200a0e85&chksm=fc211195cb569883fad12b04b750235f4d547b73c4ee39da9cbac69b443a46afafce7a6e0249&scene=132#wechat_redirect)、[这里](https://blog.csdn.net/codeyanbao/article/details/82875064)
 
 ### 问题
 
@@ -128,6 +128,8 @@ categories: Java
 2. 若没有加载则调用父加载器的loadClass()方法进行加载 
 3. 若父加载器为空则默认使用启动类加载器作为父加载器。
 4. 如果父类加载失败，抛出ClassNotFoundException异常后，再调用自己的findClass()方法进行加载。
+
+![memory-layout](https://linyongchao.github.io/static/img/classloader/3.png)
 
 ### 如何主动破坏双亲委派机制？
 
@@ -252,7 +254,9 @@ Tomcat的类加载机制：为了实现隔离性，优先加载 Web 应用自己
 
     }
 
+### 附图
 
+![memory-layout](https://linyongchao.github.io/static/img/classloader/4.png)
 
 ### 总结
 
