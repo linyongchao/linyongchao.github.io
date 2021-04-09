@@ -3,6 +3,7 @@
 ## Java
 
 * [双亲委派](http://linyongchao.github.io/2021/03/25/java-classloader/)
+* [AQS](http://linyongchao.github.io/2021/04/06/java-aqs/)
 
 ## Spring
 
