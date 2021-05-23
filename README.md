@@ -17,8 +17,8 @@
 
 之前的类别太细碎了，决定整合如下：
 
-1. WEB ：html、css、js、Vue
-2. 
+1. WEB ：html、css、js、Vue、AngularJS
+2. DB ：PostgreSQL、
 
 # About
 

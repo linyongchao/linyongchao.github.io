@@ -2,7 +2,7 @@
 layout: post
 title:  PostgreSQL ALTER
 date:   2017-07-18 19:05:05
-categories: PostgreSQL
+categories: DB
 ---
 
 * content

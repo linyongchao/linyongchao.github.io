@@ -2,7 +2,7 @@
 layout: post
 title:  AngularJS应用实例
 date:   2017-07-28 14:53:05
-categories: AngularJS
+categories: WEB
 ---
 
 * content

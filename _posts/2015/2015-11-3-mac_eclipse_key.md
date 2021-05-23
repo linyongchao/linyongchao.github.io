@@ -2,7 +2,7 @@
 layout: post
 title:  Mac 下 eclipse 快捷键
 date:   2015-11-3 12:00:05
-categories: Mac eclipse
+categories: Mac Eclipse
 ---
 
 * content

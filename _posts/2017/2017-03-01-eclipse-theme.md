@@ -2,7 +2,7 @@
 layout: post
 title:  eclipse主题
 date:   2017-03-01 17:16:54
-categories: eclipse
+categories: Eclipse
 ---
 
 * content

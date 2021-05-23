@@ -2,7 +2,7 @@
 layout: post
 title:  Java 错误
 date:   2018-05-21 22:08:54
-categories: Java Error
+categories: Java
 ---
 
 * content

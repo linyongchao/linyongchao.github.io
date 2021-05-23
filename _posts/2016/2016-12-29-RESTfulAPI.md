@@ -2,7 +2,7 @@
 layout: post
 title:  RESTful API 设计指南
 date:   2016-12-29 17:59:59
-categories: RESTful API
+categories: API
 ---
 
 * content

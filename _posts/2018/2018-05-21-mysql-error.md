@@ -2,7 +2,7 @@
 layout: post
 title:  MySQL 错误
 date:   2018-05-21 20:08:54
-categories: MySQL Error
+categories: MySQL
 ---
 
 * content
