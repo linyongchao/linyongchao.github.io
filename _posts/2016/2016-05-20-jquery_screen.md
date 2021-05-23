@@ -2,7 +2,7 @@
 layout: post
 title:  JS,Jquery 获取各种屏幕的宽度和高度
 date:   2016-05-07 23:59:59
-categories: JS
+categories: WEB
 ---
 
 * content

@@ -2,7 +2,7 @@
 layout: post
 title:  不绑定设备下载 Google Play 的 APK
 date:   2018-08-06 18:06:54
-categories: HTML
+categories: WEB
 ---
 
 * content

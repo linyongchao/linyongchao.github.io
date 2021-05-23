@@ -2,7 +2,7 @@
 layout: post
 title:  jQuery选择器总结
 date:   2017-07-03 18:05:05
-categories: JS
+categories: WEB
 ---
 
 * content
