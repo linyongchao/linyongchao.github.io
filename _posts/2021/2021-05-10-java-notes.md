@@ -20,3 +20,9 @@ categories: Java
      *
      * @see Util#check
      */
+
+### 注释格式化后保持换行符
+
+来自[这里](https://www.cnblogs.com/xxoome/p/13409554.html)
+
+![img](https://linyongchao.github.io/static/img/note.png)
