@@ -75,3 +75,14 @@ categories: Java Error
 	random.setSeed(key.getBytes());
   
 参考：[这里](https://www.cnblogs.com/zempty/p/4318902.html)
+
+### Stream closed before a reply was received
+
+分析发现是客户防火墙配置导致的网络时断时续的原因
+
+![img](https://linyongchao.github.io/static/img/apns.png)
+
+	java.io.IOException: Stream closed before a reply was received
+	        at com.turo.pushy.apns.ApnsClientHandler.<clinit>(ApnsClientHandler.java:80)
+	        at com.turo.pushy.apns.ApnsClientHandler$ApnsClientHandlerBuilder.build(ApnsClientHandler.java:136)
+	        at com.turo.pushy.apns.ApnsClientHandler$ApnsClientHandlerBuilder.build(ApnsClientHandler.java:89)
