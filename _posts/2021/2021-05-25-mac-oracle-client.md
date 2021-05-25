@@ -1,19 +1,21 @@
 ---
 layout: post
-title:  Mac 下安装配置 SQLPlus
-date:   2021-05-25 17:19:05
+title:  Mac 下安装配置 SQL Plus、SQL Developer
+date:   2021-05-25 18:39:05
 categories: Mac Oracle
 ---
 
 * content
 {:toc}
 
+## SQL Plus
+
 转载自[这里](https://www.cnblogs.com/zhuxiang1633/p/13933545.html)  
 太喜欢这文章的风格了，一句废话都没有。。。
 
 ### 下载
 
-[下载路径](https://www.oracle.com/database/technologies/instant-client/macos-intel-x86-downloads.html)
+下载路径见[这里](https://www.oracle.com/database/technologies/instant-client/macos-intel-x86-downloads.html)
 
 ![img](https://linyongchao.github.io/static/img/oracle-client.png)
 
@@ -73,3 +75,19 @@ categories: Mac Oracle
 
 	alias sqlplus='rlwrap sqlplus'
 	
+## SQL Developer
+
+### 下载
+
+下载路径见[这里](https://www.oracle.com/tools/downloads/sqldev-downloads.html)
+
+### 配置
+
+下载的文件解压后打开闪退  
+根据[这里](https://blog.csdn.net/qq_38989725/article/details/114684337)配置 JDK 路径
+
+1. 获取 JDK 路径：```echo $JAVA_HOME```
+2. 打开配置文件：```vi ~/.sqldeveloper/20.4.1/product.conf```
+3. 添加配置：```SetJavaHome 【JAVA_HOME】```
+
+SQL Developer 就可以正常使用了
