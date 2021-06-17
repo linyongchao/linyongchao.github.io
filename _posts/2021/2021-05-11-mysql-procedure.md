@@ -23,3 +23,8 @@ categories: MySQL
 ### 查看某张表涉及哪些存储过程
 
 	SELECT * FROM mysql.proc WHERE body LIKE 【name】;
+
+### 重新编译存储过程
+
+	alter procedure 【name】;
+	
