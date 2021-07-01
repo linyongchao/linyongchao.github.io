@@ -13,6 +13,16 @@
 
 * [Redis 过期策略和内存淘汰策略](http://linyongchao.github.io/2020/04/09/redis-expire/)
 
+# 面试
+
+## 字节
+
+### 三面
+
+* [64匹马，8个赛道，找最快的4匹马](http://linyongchao.github.io/2021/06/17/algorithm-horse/)
+
+### 四面
+
 # 类别
 
 之前的类别太细碎了，决定整合如下：
