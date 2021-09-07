@@ -13,6 +13,10 @@
 
 * [Redis 过期策略和内存淘汰策略](http://linyongchao.github.io/2020/04/09/redis-expire/)
 
+## DB
+
+* [explain](http://linyongchao.github.io/2021/08/28/mysql-explain/)
+
 # 面试
 
 ## 字节

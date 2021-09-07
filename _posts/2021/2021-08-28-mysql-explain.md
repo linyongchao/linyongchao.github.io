@@ -8,7 +8,7 @@ categories: MySQL
 * content
 {:toc}
 
-参考[这里](https://mp.weixin.qq.com/s/izOKK9Ft5wLts8hWIo4ODQ)
+原文见[这里](https://mp.weixin.qq.com/s/izOKK9Ft5wLts8hWIo4ODQ)
 
 ### id
 
@@ -23,39 +23,39 @@ categories: MySQL
 
 ![img](https://linyongchao.github.io/static/img/explain/2.webp)
 
-1. SIMPLE：简单查询，代表没有子查询或者union
-2. PRIMARY：如果不是简单查询，那么最外层查询就会被标记为PRIMARY
-3. UNION&UNION RESULT：从上图可以看出来，包含联合查询，第一个被标记成了PRIMARY，union之后的查询被标记成UNION，以及最后产生的UNION RESULT
-4. DERIVED：用来标记出现在from里的子查询，这个结果会放入临时表中，也叫做派生表
+1. ```SIMPLE```：简单查询，代表没有子查询或者```union```
+2. ```PRIMARY```：如果不是简单查询，那么最外层查询就会被标记为```PRIMARY```
+3. ```UNION&UNION RESULT```：从图一可以看出来，包含联合查询，第一个被标记成了```PRIMARY```，```union```之后的查询被标记成```UNION```，以及最后产生的```UNION RESULT```
+4. ```DERIVED```：用来标记出现在```from```里的子查询，这个结果会放入临时表中，也叫做派生表
 
 	![img](https://linyongchao.github.io/static/img/explain/3.webp)
 	
-	这个对于低版本的Mysql可能显示是这样的，高一点可能你看到的还是PRIMARY，因为被Mysql优化了。我换一个版本的Mysql和SQL执行可以验证到这个结果。
+	这个对于低版本的 MySQL 可能显示是这样的，高一点可能你看到的还是```PRIMARY```，因为被 MySQL 优化了。我换一个版本的 MySQL 和 SQL 执行可以验证到这个结果。
 	
 	![img](https://linyongchao.github.io/static/img/explain/4.webp)
 
-5. SUBQUERY：不在from里的子查询。
+5. ```SUBQUERY```：不在```from```里的子查询。
 
 	![img](https://linyongchao.github.io/static/img/explain/5.webp)
 	
-6. DEPENDENT：代表关联子查询（子查询使用了外部查询包含的列），和UNION，SUBQUERY组合产生不同的结果。
+6. ```DEPENDENT```：代表关联子查询（子查询使用了外部查询包含的列），和```UNION```，```SUBQUERY```组合产生不同的结果。
 
 	![img](https://linyongchao.github.io/static/img/explain/6.webp)
 	
-7. UNCACHEABLE：代表不能缓存的子查询，也可以和UNION，SUBQUERY组合产生不同的结果。
+7. ```UNCACHEABLE```：代表不能缓存的子查询，也可以和```UNION```，```SUBQUERY```组合产生不同的结果。
 
 	![img](https://linyongchao.github.io/static/img/explain/7.webp)
 
-8. MATERIALIZED：物化子查询是Mysql对子查询的优化，第一次执行子查询时会将结果保存到临时表，物化子查询只需要执行一次。  
-	比如上述DERIVED就是物化的一种体现，与之对应的就是DEPENDENT，每次子查询都需要重新调用。  
-	这个结果无法直观的看出来，可以用FORMAT=JSON命令查看materialized_from_subquery字段。  
+8. ```MATERIALIZED```：物化子查询是 MySQL 对子查询的优化，第一次执行子查询时会将结果保存到临时表，物化子查询只需要执行一次。  
+	比如上述```DERIVED```就是物化的一种体现，与之对应的就是```DEPENDENT```，每次子查询都需要重新调用。  
+	这个结果无法直观的看出来，可以用```FORMAT=JSON```命令查看```materialized_from_subquery```字段。  
 	
 	![img](https://linyongchao.github.io/static/img/explain/8.webp)  
 	
 ### table
 
-显示表名，从上述的一些图中可以观察到UNION_RESULT和DERIVED显示的表名都有一些自己的命名规则。  
-比如UNION_RESULT产生的是<unionM,N>，DERIVED产生的是。
+显示表名，从上述的一些图中可以观察到```UNION_RESULT```和```DERIVED```显示的表名都有一些自己的命名规则。  
+比如```UNION_RESULT```产生的是```<unionM,N>```，DERIVED产生的是 ```NULL```。
 
 ### partitions
 
@@ -65,29 +65,29 @@ categories: MySQL
 
 关联类型，决定通过什么方式找到每一行数据。以下按照速度由快到慢。
 
-	system>const>eq_ref>ref>fulltext>ref_or_null>index_merge>unique_subquery>index_subquery>range>index>ALL。
+	system > const > eq_ref > ref > fulltext > ref_or_null > index_merge > unique_subquery > index_subquery > range > index > ALL。
 	
 ![img](https://linyongchao.github.io/static/img/explain/9.webp)
 
 1. system&const
 
-	这通常是最快的查找方式，代表Mysql通过优化最终转换成常量查询，最常规的做法就是直接通过主键或者唯一索引查询。
+	这通常是最快的查找方式，代表 MySQL 通过优化最终转换成常量查询，最常规的做法就是直接通过主键或者唯一索引查询。
 
 	![img](https://linyongchao.github.io/static/img/explain/10.webp)
 
-	而system是const的一个特例（只有一行数据的系统表），随便找一张系统表，就插入一条数据就可以看到system了。
+	而```system```是```const```的一个特例（只有一行数据的系统表），随便找一张系统表，就插入一条数据就可以看到```system```了。
 
 	![img](https://linyongchao.github.io/static/img/explain/11.webp)
 	
 2. eq_ref
 
-	通常通过主键索引或者唯一索引查询时会看到eq_ref，它最多只返回一条数据。user_id是唯一索引，为了测试就关联以下主键索引。
+	通常通过主键索引或者唯一索引查询时会看到```eq_ref```，它最多只返回一条数据。user_id是唯一索引，为了测试就关联以下主键索引。
 	
 	![img](https://linyongchao.github.io/static/img/explain/12.webp)
 	
 3. ref
 
-	也是通过索引查找，但是和eq_ref不同，ref可能匹配到多条符合条件的数据，比如最左前缀匹配或者不是主键和唯一索引。  
+	也是通过索引查找，但是和```eq_ref```不同，```ref```可能匹配到多条符合条件的数据，比如最左前缀匹配或者不是主键和唯一索引。  
 	最简单的办法，随便查一个普通索引就可以看到。
 	
 	![img](https://linyongchao.github.io/static/img/explain/13.webp)
@@ -95,35 +95,35 @@ categories: MySQL
 4. fulltext：使用FULLTEXT索引
 5. ref_or_null
 
-	和ref类似，但是还要进行一次查询找到NULL的数据。  
-	这相当于是对于IS NULL查询的优化，如果表数据量太少的话，你或许能看到这里类型是全表扫描。
+	和```ref```类似，但是还要进行一次查询找到```NULL```的数据。  
+	这相当于是对于```IS NULL```查询的优化，如果表数据量太少的话，你或许能看到这里类型是全表扫描。
 	
 	![img](https://linyongchao.github.io/static/img/explain/14.webp)
 
 6. index_merge
 
-	索引合并是在Mysql5.1之后引入的，就像下面的一个OR查询，按照原来的想法要么用name的索引，要么就是用age的索引，有了索引合并就不一样了。  
-	对于这种单表查询（无法跨表合并）用到了多个索引的情况，每个索引都可能返回一个结果，Mysql会对结果进行取并集、交集，这就是索引合并了。
+	索引合并是在 MySQL 5.1之后引入的，就像下面的一个```OR```查询，按照原来的想法要么用name的索引，要么就是用age的索引，有了索引合并就不一样了。  
+	对于这种单表查询（无法跨表合并）用到了多个索引的情况，每个索引都可能返回一个结果，MySQL会对结果进行取并集、交集，这就是索引合并了。
 	
 	![img](https://linyongchao.github.io/static/img/explain/15.webp)
 	
 7. unique_subquery
 
-	按照官方文档所说，unique_subquery只是eq_ref的一个特例，对于下图中这种in的语句查询会出现以提高查询效率。  
-	由于Mysql会对select进行优化，基本无法出现这个场景，只能用update这种语句了。
+	按照官方文档所说，```unique_subquery```只是```eq_ref```的一个特例，对于下图中这种in的语句查询会出现以提高查询效率。  
+	由于 MySQL 会对select进行优化，基本无法出现这个场景，只能用update这种语句了。
 	
 	![img](https://linyongchao.github.io/static/img/explain/16.webp)
 	
 8. index_subquery
 
-	和unique_subquery类似，只是针对的是非唯一索引。
+	和```unique_subquery```类似，只是针对的是非唯一索引。
 	
 	![img](https://linyongchao.github.io/static/img/explain/17.webp)
 	
 9. range
 
 	看名字就知道，范围查询，其实就是带有限制条件的索引扫描。  
-	常见的范围查询比如between and，>，<，like，in 都有可能出现range。
+	常见的范围查询比如```between and，>，<，like，in``` 都有可能出现range。
 	
 	![img](https://linyongchao.github.io/static/img/explain/18.webp)
 	
