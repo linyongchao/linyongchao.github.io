@@ -20,11 +20,11 @@ Twitter 的雪花算法共计 64 位，恰好是一个 Long 类型，从左到�
 
 其结构如下图所示：  
 
-![](https://img-blog.csdnimg.cn/20190224021518160.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAyNjY5ODg=,size_16,color_FFFFFF,t_70)  
+![img](https://linyongchao.github.io/static/img/snowflake1.png) 
 
 还有一种拆分方式，就是将第三部分的机器ID拆分成 5 位的数据中心ID和5位的机器ID，如下图所示：  
 
-![](https://img-blog.csdnimg.cn/20190726091202771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAzOTg3NzE=,size_16,color_FFFFFF,t_70)  
+![img](https://linyongchao.github.io/static/img/snowflake2.png)
 
 ### 优势
 
