@@ -18,6 +18,10 @@ Alt＋Shift＋下：选中光标位置到该行结尾，再按，选中下一行
 
 Alt + command + F：替换
 
+Alt + Ctrl + J：json 格式化
+
+Shift+command+P：快捷键
+
 Shift+command+上：选中光标位置到文章开头
 
 Shift+command+下：选中光标位置到文章结尾
