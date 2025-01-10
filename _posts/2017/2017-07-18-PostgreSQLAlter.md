@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  PostgreSQL ALTER
+title:  PostgreSQL 命令
 date:   2017-07-18 19:05:05
 categories: DB
 ---
@@ -62,3 +62,21 @@ categories: DB
 
 	COMMENT ON COLUMN table_name.column_name IS 'desc';
 	
+## 索引
+
+### 创建索引
+
+	CREATE INDEX 【index_name】 ON 【table_name】 USING btree (【column_name】);
+
+### 删除索引
+
+	drop index 【index_name】;
+	
+## 排序
+
+### 物理排序
+
+	CLUSTER 【table_name】 USING 【index_name】;
+	
+
+
