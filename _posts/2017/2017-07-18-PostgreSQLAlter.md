@@ -78,5 +78,25 @@ categories: DB
 
 	CLUSTER 【table_name】 USING 【index_name】;
 	
+## 导出
+
+### 导出库
+
+	PGPASSWORD='【password】' pg_dump -h 【ip】 -p 【port】 -U 【user_name】 -f 【file_name】 -d 【db_name】
+
+### 导出角色
+
+	PGPASSWORD='【password】' pg_dumpall --roles-only -h 【ip】 -p 【port】 -U 【user_name】 -f 【file_name】
+
+## 导入
+
+### 导入库和角色
+
+	PGPASSWORD='【password】' psql -h 【ip】 -p 【port】 -U 【user_name】 -d 【db_name】 -f 【file_name】
+
+## 修改密码
+
+	ALTER ROLE 【user_name】 WITH PASSWORD '【password】';
+
 
 
