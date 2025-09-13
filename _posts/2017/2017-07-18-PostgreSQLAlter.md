@@ -21,6 +21,16 @@ categories: DB
 ### 查看表结构
 
 	\d [table]
+	
+## 库
+
+### 导出库
+
+	PGPASSWORD='【密码】' pg_dump --no-privileges --no-owner -h 【IP】 -p 【端口】 -U 【用户名】 -d 【库名】 -f 【文件名】
+
+### 导入库
+
+	PGPASSWORD='【密码】' psql -h 【IP】 -p 【端口】 -U 【用户名】 -d 【库名】 -f 【文件名】
 
 ## 表
 
@@ -31,6 +41,16 @@ categories: DB
 ### 表重命名  
 
 	ALTER TABLE table_name RENAME TO new_name;
+	
+### 重写表
+
+	VACUUM FULL table_name;
+	
+作用：重写整个表文件，彻底释放空间并返还操作系统，同时重建索引；可以用于删除数据后释放磁盘空间  
+缺点：  
+
+* 需排他锁，阻塞读写  
+* 需额外磁盘空间（约原表的 2 倍）
 	
 ## 列
 
